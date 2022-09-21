@@ -9,6 +9,7 @@ import classnames, {
   alignItems,
   display,
   flexDirection,
+  height,
   justifyContent,
   space,
 } from 'classnames/tailwind'
@@ -18,13 +19,18 @@ const container = classnames(
   flexDirection('flex-col'),
   justifyContent('justify-center'),
   alignItems('items-center'),
-  space('space-y-2')
+  space('space-y-2'),
+  height('h-full')
 )
 
 export default function () {
   const mg = useSnapshot(AppStore).magic
   const user = useSnapshot(AppStore).user
-
+  //if not logged in, describe the app and show some images how pdf will get to qrcode
+  //if logged in, save in local storrage user's email, show uploaded documents(1 free) and option to upgrade plan
+  //for each slot- empty or with document, can replace, regenerate? inplace
+  //so we need a slotblock component, a button to upgrade plan
+  //also we need a profile page, where user can change email(migration of docs), can upgrade/downgrade plan and can delete account
   return !user ? (
     <div className={container}>
       <HeaderText>Frontend Template for Login</HeaderText>
@@ -35,7 +41,7 @@ export default function () {
           await loginUser()
         }}
         disabled={false}
-      ></Button>
+      />
     </div>
   ) : (
     <div className={container}>
@@ -46,7 +52,7 @@ export default function () {
           await logoutUser()
         }}
         disabled={false}
-      ></Button>
+      />
     </div>
   )
 }
