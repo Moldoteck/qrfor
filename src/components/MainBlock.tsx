@@ -31,28 +31,9 @@ export default function () {
   //for each slot- empty or with document, can replace, regenerate? inplace
   //so we need a slotblock component, a button to upgrade plan
   //also we need a profile page, where user can change email(migration of docs), can upgrade/downgrade plan and can delete account
-  return !user ? (
+  return (
     <div className={container}>
       <HeaderText>Frontend Template for Login</HeaderText>
-
-      <Button
-        title="Login"
-        onClick={async () => {
-          await loginUser()
-        }}
-        disabled={false}
-      />
-    </div>
-  ) : (
-    <div className={container}>
-      <HeaderText>Frontend Tempolate for Logout</HeaderText>
-      <Button
-        title="Logout"
-        onClick={async () => {
-          await logoutUser()
-        }}
-        disabled={false}
-      />
     </div>
   )
 }
