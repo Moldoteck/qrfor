@@ -1,11 +1,9 @@
-import { proxy } from 'valtio'
 import { Magic } from 'magic-sdk'
-import getUserCount from 'helpers/getUserCount'
+import { proxy } from 'valtio'
 // import env from 'helpers/env'
 
 class AppStore {
-  userCount = getUserCount()
-  magic: any = new Magic('pk_live_860B0D757154B259')
+  magic = new Magic('pk_live_860B0D757154B259')
   user: null | string = null
 }
 
