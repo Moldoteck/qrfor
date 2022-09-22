@@ -1,7 +1,7 @@
 import { useSnapshot } from 'valtio'
 import AppStore from 'stores/AppStore'
 
-export async function loginUser(email = '') {
+export async function loginUser(email = 'test@gmail.com') {
   const mg = AppStore.magic
   try {
     await mg.auth.loginWithMagicLink({ email })
@@ -34,7 +34,6 @@ const getToken = async () => {
 }
 export async function checkUserLoggedIn() {
   try {
-    // const user = useSnapshot(AppStore).user
     const isLoggedIn = await AppStore.magic.user.isLoggedIn()
     if (isLoggedIn) {
       const { email } = await AppStore.magic.user.getMetadata()
@@ -42,7 +41,7 @@ export async function checkUserLoggedIn() {
       return getToken()
     }
   } catch (err) {
-    // throw new Error('User is not logged in')
+    throw new Error('User is not logged in')
   }
   return null
 }

@@ -7,6 +7,7 @@ import {
   padding,
   width,
 } from 'classnames/tailwind'
+import { checkUserLoggedIn } from 'helpers/magiclink'
 import ChildrenProp from 'models/ChildrenProp'
 
 const root = classnames(
@@ -16,6 +17,7 @@ const root = classnames(
   width('w-screen'),
   height('h-screen')
 )
+await checkUserLoggedIn()
 export default function ({ children }: ChildrenProp) {
   return <div className={root}>{children}</div>
 }

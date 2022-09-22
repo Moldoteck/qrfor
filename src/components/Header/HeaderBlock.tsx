@@ -12,6 +12,7 @@ import classnames, {
   height,
   justifyContent,
   space,
+  width,
 } from 'classnames/tailwind'
 
 const container = classnames(
@@ -24,8 +25,9 @@ const container = classnames(
 
 const h3class = classnames(
   display('flex'),
-  justifyContent('justify-center'),
-  alignItems('items-center')
+  justifyContent('justify-start'),
+  alignItems('items-start'),
+  width('w-screen')
 )
 
 const pagesClass = classnames(
@@ -36,15 +38,49 @@ const pagesClass = classnames(
 
 const buttondivclass = classnames(
   display('flex'),
-  justifyContent('justify-center'),
-  alignItems('items-end')
+  justifyContent('justify-end'),
+  alignItems('items-end'),
+  width('w-full')
 )
+
+const nonLoginTabs = [
+  {
+    text: 'Hello1',
+    callback: () => {},
+  },
+  {
+    text: 'Hello2',
+    callback: () => {},
+  },
+  {
+    text: 'Hello3',
+    callback: () => {},
+  },
+  {
+    text: 'Hello4',
+    callback: () => {},
+  },
+]
 
 export default function () {
   const user = useSnapshot(AppStore).user
+  let btns: any[] = []
+  for (let i = 0; i < nonLoginTabs.length; i++) {
+    let element = nonLoginTabs[i]
+    btns.push(
+      <Button
+        title={element.text}
+        onClick={async () => {
+          await element.callback()
+        }}
+        disabled={false}
+      />
+    )
+  }
   return (
     <header className={container}>
       <h3 className={h3class}>QRfor.me</h3>
+      {btns}
       {/* //Name or logoin left
       //padding
       //pages
