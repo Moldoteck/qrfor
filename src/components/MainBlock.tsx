@@ -11,8 +11,11 @@ import classnames, {
   flexDirection,
   height,
   justifyContent,
+  padding,
   space,
+  width,
 } from 'classnames/tailwind'
+import OptionButton from './OptionButton'
 
 const container = classnames(
   display('flex'),
@@ -21,6 +24,24 @@ const container = classnames(
   alignItems('items-center'),
   space('space-y-2'),
   height('h-full')
+)
+
+const buttonContainer = classnames(
+  display('flex'),
+  flexDirection('flex-row'),
+  justifyContent('justify-center'),
+  alignItems('items-center'),
+  width('w-full'),
+  space('space-x-2')
+)
+
+const imageContainer = classnames(
+  display('flex'),
+  flexDirection('flex-col'),
+  justifyContent('justify-center'),
+  alignItems('items-center'),
+  space('space-y-1'),
+  padding('p-1')
 )
 
 export default function () {
@@ -33,7 +54,23 @@ export default function () {
   //also we need a profile page, where user can change email(migration of docs), can upgrade/downgrade plan and can delete account
   return (
     <div className={container}>
-      <HeaderText>Frontend Template for Login</HeaderText>
+      <HeaderText>Get QR codes</HeaderText>
+      <HeaderText>for your files</HeaderText>
+      <div className={imageContainer}>
+        <img src="https://i.ibb.co/TbrQ5L5/qrsample.png"></img>
+        <div className={buttonContainer}>
+          <OptionButton
+            title="Test it"
+            onClick={async () => {}}
+            disabled={false}
+          />
+          <OptionButton
+            title="Ok, I'm in"
+            onClick={async () => {}}
+            disabled={false}
+          />
+        </div>
+      </div>
     </div>
   )
 }

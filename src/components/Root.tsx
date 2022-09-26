@@ -17,7 +17,7 @@ const root = classnames(
   width('w-screen'),
   height('h-screen')
 )
-await checkUserLoggedIn()
+// await checkUserLoggedIn()
 export default function ({ children }: ChildrenProp) {
   return <div className={root}>{children}</div>
 }
