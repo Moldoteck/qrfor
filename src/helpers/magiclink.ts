@@ -1,11 +1,13 @@
 import { useSnapshot } from 'valtio'
 import AppStore from 'stores/AppStore'
+import PersistableStore from 'stores/persistence/PersistableStore'
 
-export async function loginUser(email = 'test@gmail.com') {
+export async function loginUser(email = 'cpadureac@gmail.com') {
   const mg = AppStore.magic
   try {
     await mg.auth.loginWithMagicLink({ email })
     AppStore.user = email
+    // new PersistableStore().makePersistent()
     // router.push('/')
   } catch (err) {
     AppStore.user = null

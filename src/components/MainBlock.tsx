@@ -45,13 +45,15 @@ const imageContainer = classnames(
 )
 
 export default function () {
-  const mg = useSnapshot(AppStore).magic
-  const user = useSnapshot(AppStore).user
+  // const mg = useSnapshot(AppStore).magic
+  // const user = useSnapshot(AppStore).user
   //if not logged in, describe the app and show some images how pdf will get to qrcode
   //if logged in, save in local storrage user's email, show uploaded documents(1 free) and option to upgrade plan
   //for each slot- empty or with document, can replace, regenerate? inplace
   //so we need a slotblock component, a button to upgrade plan
   //also we need a profile page, where user can change email(migration of docs), can upgrade/downgrade plan and can delete account
+  
+  //on front page: instruction in Three steps: 1. upload pdf 2. get qrcode 3. print your qrcode and put it everywhere
   return (
     <div className={container}>
       <HeaderText>Get QR codes</HeaderText>

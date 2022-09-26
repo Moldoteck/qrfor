@@ -1,5 +1,5 @@
 import { Magic } from 'magic-sdk'
-import { proxy } from 'valtio'
+import { proxy, subscribe } from 'valtio'
 // import env from 'helpers/env'
 
 class AppStore {

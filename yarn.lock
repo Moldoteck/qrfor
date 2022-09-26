@@ -8659,6 +8659,7 @@ __metadata:
     magic-sdk: ^9.0.0
     postcss: ^8.4.16
     preact: ^10.11.0
+    preact-router: ^4.1.0
     prettier: ^2.7.1
     react-scripts: ^5.0.1
     rollup-plugin-visualizer: ^5.8.1
@@ -8667,6 +8668,7 @@ __metadata:
     typescript: ^4.8.3
     unfetch: ^4.2.0
     valtio: ^1.7.0
+    valtio-persist: ^1.0.2
     vite: ^3.1.0
     vite-tsconfig-paths: ^3.5.0
   languageName: unknown
@@ -13175,6 +13177,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"preact-router@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "preact-router@npm:4.1.0"
+  peerDependencies:
+    preact: ">=10"
+  checksum: 5cde4340dd92562bbc9b6370471846a4ba11bc3678238fc68abfdad10bb3bdaf7e6379c281dfabbf220a7213670d74a6fc167abecee80ec1771f566316df2c2c
+  languageName: node
+  linkType: hard
+
 "preact@npm:^10.11.0":
   version: 10.11.0
   resolution: "preact@npm:10.11.0"
@@ -15750,6 +15761,17 @@ __metadata:
     convert-source-map: ^1.6.0
     source-map: ^0.7.3
   checksum: c7dabf9567e0c210b24d0720e553803cbe1ff81edb1ec7f2080eb4be01ed081a40286cc9f4aaa86d1bf8d57840cefae8fdf326b7cb8faa316ba50c7b948030d4
+  languageName: node
+  linkType: hard
+
+"valtio-persist@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "valtio-persist@npm:1.0.2"
+  dependencies:
+    lodash: ^4.17.21
+  peerDependencies:
+    valtio: ^1.2.5
+  checksum: 9aef676a861b1373370b36fd23fb963a6eb5578281ee793204a9bd36566ff81e4d1a58ef0f7193eb239d518d1d03283d10dc5edb7b43eb762252459ea2dfb729
   languageName: node
   linkType: hard
 

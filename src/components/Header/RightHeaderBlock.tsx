@@ -1,5 +1,5 @@
 import { loginUser, logoutUser } from 'helpers/magiclink'
-import { useSnapshot } from 'valtio'
+import { subscribe, useSnapshot } from 'valtio'
 import AppStore from 'stores/AppStore'
 import Button from 'components/Button'
 
