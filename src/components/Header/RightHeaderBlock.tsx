@@ -9,6 +9,7 @@ import classnames, {
   justifyContent,
   width,
 } from 'classnames/tailwind'
+import { route } from 'preact-router'
 
 const container = classnames(
   display('flex'),
@@ -25,7 +26,8 @@ export default function () {
         <Button
           title="Log in"
           onClick={async () => {
-            await loginUser()
+            // await loginUser()
+            route('/login', true)
           }}
           disabled={false}
         />

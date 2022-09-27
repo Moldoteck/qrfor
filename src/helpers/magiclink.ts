@@ -2,7 +2,7 @@ import { useSnapshot } from 'valtio'
 import AppStore from 'stores/AppStore'
 import PersistableStore from 'stores/persistence/PersistableStore'
 
-export async function loginUser(email = 'cpadureac@gmail.com') {
+export async function loginUser(email: string) {
   const mg = AppStore.magic
   try {
     await mg.auth.loginWithMagicLink({ email })
@@ -46,4 +46,10 @@ export async function checkUserLoggedIn() {
     throw new Error('User is not logged in')
   }
   return null
+}
+
+export function preloadMagic() {
+  AppStore.magic.preload().catch((err) => {
+    console.log(err)
+  })
 }

@@ -7,6 +7,7 @@ import {
   padding,
   width,
 } from 'classnames/tailwind'
+import { preloadMagic } from 'helpers/magiclink'
 import ChildrenProp from 'models/ChildrenProp'
 
 const root = classnames(
@@ -18,5 +19,9 @@ const root = classnames(
 )
 
 export default function ({ children }: ChildrenProp) {
-  return <div className={root}>{children}</div>
+  return (
+    <div className={root} onLoad={preloadMagic}>
+      {children}
+    </div>
+  )
 }
