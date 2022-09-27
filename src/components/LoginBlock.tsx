@@ -4,15 +4,20 @@ import AppStore from 'stores/AppStore'
 
 import classnames, {
   alignItems,
+  backgroundColor,
+  borderRadius,
   display,
   flexDirection,
+  fontWeight,
   height,
   justifyContent,
+  padding,
   space,
+  textColor,
 } from 'classnames/tailwind'
 import { route } from 'preact-router'
 import Button from './Button'
-import { loginUser } from 'helpers/magiclink'
+import { loginUserCode, loginUser } from 'helpers/magiclink'
 
 const container = classnames(
   display('flex'),
@@ -38,10 +43,17 @@ export default function () {
         id="emailfield"
         type="text"
         placeholder="email"
+        className={classnames(
+          backgroundColor('bg-gray-500'),
+          textColor('text-black-background'),
+          fontWeight('font-bold'),
+          padding('px-4', 'py-2'),
+          borderRadius('rounded')
+        )}
         onChange={handleEmailChange}
       />
       <Button
-        title="Log in"
+        title="Log in with email"
         onClick={async () => {
           AppStore.email
             ? await loginUser(AppStore.email)
@@ -49,7 +61,6 @@ export default function () {
         }}
         disabled={false}
       />
-      <HeaderText>This is login block</HeaderText>
     </div>
   ) : (
     <div> </div>

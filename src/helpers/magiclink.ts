@@ -16,6 +16,20 @@ export async function loginUser(email: string) {
   }
 }
 
+export async function loginUserCode(email: string) {
+  const mg = AppStore.magic
+  try {
+    await mg.auth.loginWithEmailOTP({ email })
+    AppStore.user = email
+    // new PersistableStore().makePersistent()
+    // router.push('/')
+  } catch (err) {
+    AppStore.user = null
+    console.log(err)
+    throw new Error('Email login failed')
+  }
+}
+
 export async function logoutUser() {
   try {
     await AppStore.magic.user.logout()

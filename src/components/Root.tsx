@@ -7,7 +7,7 @@ import {
   padding,
   width,
 } from 'classnames/tailwind'
-import { preloadMagic } from 'helpers/magiclink'
+import { checkUserLoggedIn, preloadMagic } from 'helpers/magiclink'
 import ChildrenProp from 'models/ChildrenProp'
 
 const root = classnames(
@@ -18,6 +18,7 @@ const root = classnames(
   height('h-screen')
 )
 
+await checkUserLoggedIn()
 export default function ({ children }: ChildrenProp) {
   return (
     <div className={root} onLoad={preloadMagic}>

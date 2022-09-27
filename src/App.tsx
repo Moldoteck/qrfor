@@ -8,6 +8,7 @@ import PricingBlock from 'components/PricingBlock'
 import Root from 'components/Root'
 import { checkUserLoggedIn } from 'helpers/magiclink'
 import { Router, Route, route } from 'preact-router'
+import { Suspense } from 'preact/compat'
 import AppStore from 'stores/AppStore'
 import { subscribe } from 'valtio'
 
@@ -26,16 +27,18 @@ await checkUserLoggedIn()
 // })
 export default function () {
   return (
-    <Root>
-      <HeaderBlock />
-      <Router onChange={handleRoute}>
-        <Route path="/" component={MainBlock} />
-        <Route path="/about" component={AboutBlock} />
-        <Route path="/pricing" component={PricingBlock} />
-        <Route path="/contact" component={ContactBlock} />
-        <Route path="/myqrs" component={MYQRSBlock} />
-        <Route path="/login" component={LoginBlock} />
-      </Router>
-    </Root>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Root>
+        <HeaderBlock />
+        <Router onChange={handleRoute}>
+          <Route path="/" component={MainBlock} />
+          <Route path="/about" component={AboutBlock} />
+          <Route path="/pricing" component={PricingBlock} />
+          <Route path="/contact" component={ContactBlock} />
+          <Route path="/myqrs" component={MYQRSBlock} />
+          <Route path="/login" component={LoginBlock} />
+        </Router>
+      </Root>
+    </Suspense>
   )
 }
