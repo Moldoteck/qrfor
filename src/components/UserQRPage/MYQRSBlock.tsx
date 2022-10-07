@@ -23,9 +23,11 @@ const container = classnames(
 export default function () {
   // const mg = useSnapshot(AppStore).magic
   const user = useSnapshot(AppStore).user
-  return (
+  return user ? (
     <div className={container}>
-      <HeaderText>This is contact block</HeaderText>
+      <HeaderText>This is MYQR block</HeaderText>
     </div>
+  ) : (
+    <div className={container}>route('/login')</div>
   )
 }

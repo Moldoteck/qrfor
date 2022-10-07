@@ -37,12 +37,9 @@ const h3divclass = classnames(
   borderColor('border-white'),
   borderWidth('border-2'),
   borderRadius('rounded'),
-  cursor('cursor-pointer'),
-  )
-const h3class = classnames(
-  textColor('text-white'),
-  fontWeight('font-bold'),
-  )
+  cursor('cursor-pointer')
+)
+const h3class = classnames(textColor('text-white'), fontWeight('font-bold'))
 const tabsClass = classnames(
   display('flex'),
   justifyContent('justify-evenly'),
@@ -53,22 +50,30 @@ const tabsClass = classnames(
 const nonLoginTabs = [
   {
     text: 'My QRs',
-    callback: () => { route('/myqrs') },
-    disabled: true,
+    callback: () => {
+      route('/myqrs')
+    },
+    disabled: false,
   },
   {
     text: 'Pricing',
-    callback: () => { route('/pricing') },
+    callback: () => {
+      route('/pricing')
+    },
     disabled: false,
   },
   {
     text: 'Contact',
-    callback: () => { route('/contact') },
+    callback: () => {
+      route('/contact')
+    },
     disabled: false,
   },
   {
     text: 'About',
-    callback: () => {route("/about")},
+    callback: () => {
+      route('/about')
+    },
     disabled: false,
   },
 ]
@@ -90,9 +95,15 @@ export default function () {
   }
   return (
     <div className={container}>
-      
       <div className={h3divclass}>
-      <h3 className={h3class} onClick={() => { route('/') }}>QRfor.me</h3>
+        <h3
+          className={h3class}
+          onClick={() => {
+            route('/')
+          }}
+        >
+          QRfor.me
+        </h3>
       </div>
       <div className={tabsClass}>{btns}</div>
 
