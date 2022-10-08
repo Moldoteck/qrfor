@@ -11,6 +11,7 @@ import classnames, {
   fontWeight,
   height,
   justifyContent,
+  margin,
   padding,
   space,
   textColor,

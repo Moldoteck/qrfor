@@ -1,5 +1,5 @@
-import AboutBlock from 'components/AboutBlock'
-import ContactBlock from 'components/ContactBlock'
+import AboutBlock from 'components/AboutPage/AboutBlock'
+import ContactBlock from 'components/ContactPage/ContactBlock'
 import HeaderBlock from 'components/Header/HeaderBlock'
 import LoginBlock from 'components/LoginBlock'
 import MainBlock from 'components/MainBlock'
@@ -11,6 +11,7 @@ import { Router, Route, route } from 'preact-router'
 import { Suspense } from 'preact/compat'
 import AppStore from 'stores/AppStore'
 import { subscribe } from 'valtio'
+import classnames, { margin } from 'classnames/tailwind'
 
 let handleRoute = async (e: any) => {
   switch (e.url) {
@@ -30,14 +31,17 @@ export default function () {
     <Suspense fallback={<div>Loading...</div>}>
       <Root>
         <HeaderBlock />
-        <Router onChange={handleRoute}>
-          <Route path="/" component={MainBlock} />
-          <Route path="/about" component={AboutBlock} />
-          <Route path="/pricing" component={PricingBlock} />
-          <Route path="/contact" component={ContactBlock} />
-          <Route path="/myqrs" component={MYQRSBlock} />
-          <Route path="/login" component={LoginBlock} />
-        </Router>
+        <div className={classnames(
+          margin('mt-28'))}>
+          <Router onChange={handleRoute}>
+            <Route path="/" component={MainBlock} />
+            <Route path="/about" component={AboutBlock} />
+            <Route path="/pricing" component={PricingBlock} />
+            <Route path="/contact" component={ContactBlock} />
+            <Route path="/myqrs" component={MYQRSBlock} />
+            <Route path="/login" component={LoginBlock} />
+          </Router>
+        </div>
       </Root>
     </Suspense>
   )

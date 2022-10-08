@@ -23,6 +23,8 @@ const container = classnames(
 export default function () {
   // const mg = useSnapshot(AppStore).magic
   const user = useSnapshot(AppStore).user
+  //if logged in, just text form and send button
+  //if not logged in, email placeholder, text form and send button
   return (
     <div className={container}>
       <HeaderText>This is contact block</HeaderText>

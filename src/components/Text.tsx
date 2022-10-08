@@ -1,5 +1,6 @@
 import {
   classnames,
+  fontFamily,
   fontSize,
   fontWeight,
   textAlign,
@@ -12,9 +13,10 @@ const grayText = classnames(textColor('text-gray-300'))
 
 const headerText = classnames(
   whiteText,
-  fontSize('text-3xl', 'md:text-6xl'),
+  fontSize('text-2xl', 'md:text-4xl'),
   fontWeight('font-bold'),
-  textAlign('text-center')
+  textAlign('text-center'),
+  fontFamily('font-mono')
 )
 export function HeaderText({ children }: ChildrenProp) {
   return <p className={headerText}>{children}</p>

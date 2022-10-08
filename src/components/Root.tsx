@@ -14,8 +14,7 @@ const root = classnames(
   container('container'),
   margin('mx-auto'),
   padding('pb-10', 'py-4'),
-  width('w-screen'),
-  height('h-screen')
+  width('w-screen')
 )
 
 await checkUserLoggedIn()
