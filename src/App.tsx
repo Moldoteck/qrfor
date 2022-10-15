@@ -12,6 +12,7 @@ import { Suspense } from 'preact/compat'
 import AppStore from 'stores/AppStore'
 import { subscribe } from 'valtio'
 import classnames, { margin } from 'classnames/tailwind'
+import UploadBlock from 'components/UploadPage/UploadBlock'
 
 let handleRoute = async (e: any) => {
   switch (e.url) {
@@ -31,8 +32,7 @@ export default function () {
     <Suspense fallback={<div>Loading...</div>}>
       <Root>
         <HeaderBlock />
-        <div className={classnames(
-          margin('mt-28'))}>
+        <div className={classnames(margin('mt-28'))}>
           <Router onChange={handleRoute}>
             <Route path="/" component={MainBlock} />
             <Route path="/about" component={AboutBlock} />
@@ -40,6 +40,7 @@ export default function () {
             <Route path="/contact" component={ContactBlock} />
             <Route path="/myqrs" component={MYQRSBlock} />
             <Route path="/login" component={LoginBlock} />
+            <Route path="/upload" component={UploadBlock} />
           </Router>
         </div>
       </Root>
